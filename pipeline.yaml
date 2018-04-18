@@ -3,7 +3,7 @@ envValues:
   - envVar: KUBECTL_VERSION
     value: v1.9.2
 rootfs:
-  - image: samsung_cnct/eventrouter
+  - image: samsung_cnct/eventrouter-container
     context: eventrouter
     chart: eventrouter
     value: image
