@@ -8,7 +8,7 @@ rootfs:
       KUBECTL_VERSION: "v1.9.2"
     context: eventrouter
     chart: eventrouter
-    value: eventrouter.image
+    value: image
 configs:
   - chart: eventrouter
     timeout: 600
@@ -16,11 +16,11 @@ configs:
     release: eventrouter
     test: 
       values:
-        - key: eventrouter.foo
+        - key: foo
           value: bar
     stage: 
       values:
-        - key: eventrouter.foo
+        - key: foo
           value: bar
 test:
   beforeScript:
