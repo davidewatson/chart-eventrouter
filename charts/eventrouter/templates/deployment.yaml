@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.name }}
   labels:
     app: {{ template "eventrouter.name" . }}
-    chart:  {{ printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 }}
+    chart: {{ template "namewithversion" }}
     release: "{{.Release.Name}}"
     heritage: "{{.Release.Service}}"
 spec:
