@@ -4,7 +4,7 @@ kind: ServiceAccount
 metadata:
   name: {{ .Values.name }} 
   labels:
-    app: {{ template "name" . }}
+    app: {{ template "eventrouter.name" . }}
     chart:  {{ printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 }}
     release: "{{.Release.Name}}"
     heritage: "{{.Release.Service}}"
@@ -14,7 +14,7 @@ kind: ClusterRole
 metadata:
   name: {{ .Values.name }} 
   labels:
-    app: {{ template "name" . }}
+    app: {{ template "eventrouter.name" . }}
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"
     release: "{{.Release.Name}}"
     heritage: "{{.Release.Service}}"
@@ -28,7 +28,7 @@ kind: ClusterRoleBinding
 metadata:
   name: {{ .Values.name }} 
   labels:
-    app: {{ template "name" . }}
+    app: {{ template "eventrouter.name" . }}
     chart: {{ printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 }}
     release: "{{.Release.Name}}"
     heritage: "{{.Release.Service}}"
