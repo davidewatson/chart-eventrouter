@@ -1,5 +1,5 @@
 name: eventrouter
-version: ${CHART_VER}-${CHART_REL}
+version: 0.1.0-0
 description: Chart to install eventrouter deployment 
 keywords:
 - kraken

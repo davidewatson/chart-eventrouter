@@ -1,0 +1,39 @@
+type: chart
+envValues:
+  - envVar: KUBECTL_VERSION
+    value: v1.9.2
+rootfs:
+  - image: samsung_cnct/eventrouter
+    buildArgs: 
+      KUBECTL_VERSION: "v1.9.2"
+    context: eventrouter
+    chart: eventrouter
+    value: eventrouter.image
+configs:
+  - chart: eventrouter
+    timeout: 600
+    retries: 1
+    release: eventrouter
+    test: 
+      values:
+        - key: eventrouter.foo
+          value: bar
+    stage: 
+      values:
+        - key: eventrouter.foo
+          value: bar
+test:
+  beforeScript:
+    script: scripts/beforeTest.sh
+    shell: /usr/local/bin/bash
+  afterScript:
+    script: scripts/afterTest.sh
+    shell: /usr/local/bin/bash
+stage:
+  beforeScript:
+    script: scripts/beforeStage.sh
+    shell: /usr/local/bin/bash
+prod:  
+  doDeploy: none
+
+ 
